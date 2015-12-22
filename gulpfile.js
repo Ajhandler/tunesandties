@@ -3,11 +3,14 @@ var sass = require('gulp-sass');
 var jshint = require('gulp-jshint'); 
 var concat = require('gulp-concat');
 var imagemin = require('gulp-imagemin');
+var plumber = require('gulp-plumber'); 
+var notify = require('gulp-notify');
 
 //sass task
 gulp.task('sass', function(){
 	gulp.src('./scss/*.scss')
 
+	.pipe(plumber(plumberErrorHandler))
 	.pipe(sass())
 	.pipe(gulp.dest('.'))
 });
@@ -16,7 +19,7 @@ gulp.task('sass', function(){
 gulp.task('js',function(){
 	gulp.src('assets/javascript/*.js')
 
-
+	.pipe(plumber(plumberErrorHandler))
 	.pipe(concat('theme.js'))
 	.pipe(gulp.dest('assets/javascript/'));
 });
@@ -30,8 +33,20 @@ gulp.task('img', function() {
       progressive: true
  
     }))
+    .pipe(plumber(plumberErrorHandler))
     .pipe(gulp.dest('assets/img'))
 });
+
+//Plumber error
+var plumberErrorHandler = { errorHandler: notify.onError({
+ 
+    title: 'Gulp',
+ 
+    message: 'Error: <%= error.message %>'
+ 
+  })
+ 
+};
 
 //Watch task
 
