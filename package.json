@@ -1,0 +1,25 @@
+{
+  "name": "tunes-and-ties",
+  "version": "1.0.0",
+  "description": "Wordpress theme for Leonard Handler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ajhandler/tunesandties.git"
+  },
+  "keywords": [
+    "Wordpress",
+    "clean",
+    "minimal",
+    "photos"
+  ],
+  "author": "Alexander Handler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ajhandler/tunesandties/issues"
+  },
+  "homepage": "https://github.com/Ajhandler/tunesandties#readme"
+}
