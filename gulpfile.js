@@ -5,13 +5,15 @@ var concat = require('gulp-concat');
 var imagemin = require('gulp-imagemin');
 var plumber = require('gulp-plumber'); 
 var notify = require('gulp-notify');
+var autoprefixer = require('gulp-autoprefixer')
 
-//sass task
+//sass task, with auto-prefix
 gulp.task('sass', function(){
 	gulp.src('./scss/*.scss')
 
 	.pipe(plumber(plumberErrorHandler))
-	.pipe(sass())
+	.pipe(sass({outputStyle: 'compressed'}))
+  .pipe(autoprefixer('last 2 version'))
 	.pipe(gulp.dest('.'))
 });
 
