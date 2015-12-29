@@ -12,7 +12,7 @@ gulp.task('sass', function(){
 	gulp.src('./scss/*.scss')
 
 	.pipe(plumber(plumberErrorHandler))
-	.pipe(sass({outputStyle: 'compressed'}))
+	.pipe(sass({outputStyle: 'compact'}))
   .pipe(autoprefixer('last 2 version'))
 	.pipe(gulp.dest('.'))
 });
@@ -23,6 +23,7 @@ gulp.task('js',function(){
 
 	.pipe(plumber(plumberErrorHandler))
 	.pipe(concat('theme.js'))
+  .pipe(rename({suffix: '.min'}))
 	.pipe(gulp.dest('assets/javascript/'));
 });
 
